@@ -27,17 +27,17 @@ const obstacleMaterial = new THREE.MeshStandardMaterial({ color: "darkgreen" });
 const wallMaterial = new THREE.MeshStandardMaterial({ color: "slategrey" });
 
 export function Level({}) {
-  const [blockSpinnerActive, setBlockSpinnerActive] = useState(false);
+  const [blockSpinnerActive, setBlockSpinnerActive] = useState(true);
   const [blockPillarSpinnerActive, setBlockPillarSpinnerActive] =
-    useState(false);
-  const [blockSpinnerClockActive, setBlockSpinnerClockActive] = useState(false);
+    useState(true);
+  const [blockSpinnerClockActive, setBlockSpinnerClockActive] = useState(true);
   const [blockSpinnerBarrelActive, setBlockSpinnerBarrelActive] =
-    useState(false);
-  const [blockDoorActive, setBlockDoorActive] = useState(false);
-  const [blockDoubleDoorActive, setBlockDoubleDoorActive] = useState(false);
+    useState(true);
+  const [blockDoorActive, setBlockDoorActive] = useState(true);
+  const [blockDoubleDoorActive, setBlockDoubleDoorActive] = useState(true);
   const [blockLimboActive, setBlockLimboActive] = useState(true);
-  const [blockRandomPillarActive, setBlockRandomPillarActive] = useState(false);
-  const [blockAxeActive, setBlockAxeActive] = useState(false);
+  const [blockRandomPillarActive, setBlockRandomPillarActive] = useState(true);
+  const [blockAxeActive, setBlockAxeActive] = useState(true);
   const [blockTriangleActive, setBlockTriangleActive] = useState(false);
   const [blockTriangleVar2Active, setBlockTriangleVar2Active] = useState(false);
   const [blockOctahedronActive, setBlockOctahedronActive] = useState(false);
