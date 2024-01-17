@@ -11,12 +11,8 @@ export function BlockDoubleDoor({
 }) {
   const obstacle = useRef();
   const obstacle2 = useRef();
-  const [speed] = useState(
-    () => (Math.random() + 0.2)
-  );
-  const [speed2] = useState(
-    () => (Math.random() + 0.2) * (-1)
-  );
+  const [speed] = useState(() => Math.random() + 0.2);
+  const [speed2] = useState(() => (Math.random() + 0.2) * -1);
   /**
    * (Math.random() returns a number between 0 and 1)
    */
@@ -27,10 +23,10 @@ export function BlockDoubleDoor({
     const rotation2 = new THREE.Quaternion();
     rotation2.setFromEuler(new THREE.Euler(0, time * speed2, 0));
     if (obstacle.current) {
-    obstacle.current.setNextKinematicRotation(rotation);
+      obstacle.current.setNextKinematicRotation(rotation);
     }
     if (obstacle2.current) {
-    obstacle2.current.setNextKinematicRotation(rotation2);
+      obstacle2.current.setNextKinematicRotation(rotation2);
     }
   });
 
@@ -48,8 +44,7 @@ export function BlockDoubleDoor({
         <RigidBody
           ref={obstacle}
           type="kinematicPosition"
-          position={[1, 1.40, 0]}
-
+          position={[1, 1.4, 0]}
           restitution={0.2}
           friction={0}
         >
@@ -64,8 +59,7 @@ export function BlockDoubleDoor({
         <RigidBody
           ref={obstacle2}
           type="kinematicPosition"
-          position={[-1, 1.40, 0]}
-
+          position={[-1, 1.4, 0]}
           restitution={0.2}
           friction={0}
         >

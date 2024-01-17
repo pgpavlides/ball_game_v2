@@ -12,17 +12,13 @@ export function BlockOctahedron({
 }) {
   const obstacle = useRef();
   const verticesOfCube = [
-    -1, -1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1,
-    -1, -1, 1, 1, -1, 1, 1, 1, 1, -1, 1, 1,
+    -1, -1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, -1, 1, 1, 1, 1,
+    -1, 1, 1,
   ];
 
   const indicesOfFaces = [
-    2, 1, 0, 0, 3, 2,
-    0, 4, 7, 7, 3, 0,
-    0, 1, 5, 5, 4, 0,
-    1, 2, 6, 6, 5, 1,
-    2, 3, 7, 7, 6, 2,
-    4, 5, 6, 6, 7, 4,
+    2, 1, 0, 0, 3, 2, 0, 4, 7, 7, 3, 0, 0, 1, 5, 5, 4, 0, 1, 2, 6, 6, 5, 1, 2,
+    3, 7, 7, 6, 2, 4, 5, 6, 6, 7, 4,
   ];
 
   const octahedronGeometry = new THREE.PolyhedronGeometry(
@@ -43,19 +39,18 @@ export function BlockOctahedron({
     const x = Math.sin((time + timeOffset) * 4);
     const z = Math.cos(time + timeOffset);
     if (obstacle.current) {
-    obstacle.current.setNextKinematicTranslation({
-      x: position[0] + x,
-      y: position[1] + 1,
-      z: position[2] + z,
-    });
-  }
+      obstacle.current.setNextKinematicTranslation({
+        x: position[0] + x,
+        y: position[1] + 1,
+        z: position[2] + z,
+      });
+    }
     const rotation = new THREE.Quaternion();
     rotation.setFromEuler(new THREE.Euler(0, time * speed * 3, 0));
     if (obstacle.current) {
-    obstacle.current.setNextKinematicRotation(rotation);
+      obstacle.current.setNextKinematicRotation(rotation);
     }
   });
-
 
   return (
     <>

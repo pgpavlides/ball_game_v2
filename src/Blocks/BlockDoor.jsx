@@ -21,7 +21,7 @@ export function BlockDoor({
     const rotation = new THREE.Quaternion();
     rotation.setFromEuler(new THREE.Euler(0, time * speed, 0));
     if (obstacle.current) {
-    obstacle.current.setNextKinematicRotation(rotation);
+      obstacle.current.setNextKinematicRotation(rotation);
     }
   });
 
@@ -46,7 +46,7 @@ export function BlockDoor({
             geometry={geometry}
             material={obstacleMaterial}
             scale={[1.5, 2.8, 0.3]}
-            position={[1, 1.40, 0]}
+            position={[1, 1.4, 0]}
             castShadow
             receiveShadow
           ></mesh>

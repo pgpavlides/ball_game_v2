@@ -27,7 +27,7 @@ export default function Player() {
     const ray = new rapier.Ray(origin, direction);
     const hit = world.castRay(ray, 10, true);
 
-    if (hit.toi < 5.55) {
+    if (hit.toi < 0.15) {
       body.current.applyImpulse({ x: 0, y: 0.5, z: 0 });
     }
   };
@@ -93,22 +93,22 @@ export default function Player() {
      * Camera
      */
 
-    const bodyPosition = body.current.translation();
+    // const bodyPosition = body.current.translation();
 
-    const cameraPosition = new THREE.Vector3();
-    cameraPosition.copy(bodyPosition);
-    cameraPosition.z += 2;
-    cameraPosition.y += 1.3;
+    // const cameraPosition = new THREE.Vector3();
+    // cameraPosition.copy(bodyPosition);
+    // cameraPosition.z += 2;
+    // cameraPosition.y += 1.3;
 
-    const cameraTarget = new THREE.Vector3();
-    cameraTarget.copy(bodyPosition);
-    cameraTarget.y += 0.25;
+    // const cameraTarget = new THREE.Vector3();
+    // cameraTarget.copy(bodyPosition);
+    // cameraTarget.y += 0.25;
 
-    // smoothedCameraPosition.lerp(cameraPosition, 5 * delta);
-    // smoothedCameraTarget.lerp(cameraTarget, 5 * delta);
+    // // smoothedCameraPosition.lerp(cameraPosition, 5 * delta);
+    // // smoothedCameraTarget.lerp(cameraTarget, 5 * delta);
 
-    state.camera.position.copy(cameraPosition);
-    state.camera.lookAt(cameraTarget);
+    // state.camera.position.copy(cameraPosition);
+    // state.camera.lookAt(cameraTarget);
   });
 
   return (

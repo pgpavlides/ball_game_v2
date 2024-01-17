@@ -20,9 +20,9 @@ export function BlockSpinnerClock({
     const time = state.clock.getElapsedTime();
     // console.log(state)
     const rotation = new THREE.Quaternion();
-    rotation.setFromEuler(new THREE.Euler(0, 0 , time * speed * 3));
+    rotation.setFromEuler(new THREE.Euler(0, 0, time * speed * 3));
     if (obstacle.current) {
-    obstacle.current.setNextKinematicRotation(rotation);
+      obstacle.current.setNextKinematicRotation(rotation);
     }
   });
 
@@ -42,7 +42,6 @@ export function BlockSpinnerClock({
           type="kinematicPosition"
           restitution={0.2}
           position={[0, 2, 0]}
-
           friction={0}
         >
           <mesh

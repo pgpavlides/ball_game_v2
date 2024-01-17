@@ -11,7 +11,7 @@ export function BlockTriangleVar2({
   obstacleMaterial,
 }) {
   const obstacle = useRef();
-const coneGeometry = new THREE.ConeGeometry( 2.5, 2.5, 10 ); 
+  const coneGeometry = new THREE.ConeGeometry(2.5, 2.5, 10);
 
   const [timeOffset] = useState(() => Math.random() * Math.PI * 2);
   /**
@@ -20,15 +20,15 @@ const coneGeometry = new THREE.ConeGeometry( 2.5, 2.5, 10 );
   useFrame((state) => {
     const time = state.clock.getElapsedTime();
 
-    const x = Math.sin((time + timeOffset) * 4) ;
-    const z = Math.cos((time + timeOffset)) ;
+    const x = Math.sin((time + timeOffset) * 4);
+    const z = Math.cos(time + timeOffset);
     if (obstacle.current) {
-    obstacle.current.setNextKinematicTranslation({
-      x: position[0] + x,
-      y: position[1] + z,
-      z: position[2],
-    });
-  }
+      obstacle.current.setNextKinematicTranslation({
+        x: position[0] + x,
+        y: position[1] + z,
+        z: position[2],
+      });
+    }
   });
 
   return (

@@ -17,14 +17,14 @@ export function BlockAxe({
   useFrame((state) => {
     const time = state.clock.getElapsedTime();
 
-    const x = Math.sin((time * 2) + timeOffset) * 1.25;
+    const x = Math.sin(time * 2 + timeOffset) * 1.25;
     if (obstacle.current) {
-    obstacle.current.setNextKinematicTranslation({
-      x: position[0] + x,
-      y: position[1] + 0.75,
-      z: position[2],
-    });
-  }
+      obstacle.current.setNextKinematicTranslation({
+        x: position[0] + x,
+        y: position[1] + 0.75,
+        z: position[2],
+      });
+    }
   });
 
   return (

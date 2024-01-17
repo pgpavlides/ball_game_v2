@@ -18,6 +18,8 @@ import { BlockTriangle } from "./Blocks/BlockTriangle";
 import { BlockTriangleVar2 } from "./Blocks/BlockTriangleVar2";
 import { BlockOctahedron } from "./Blocks/BlockOctahedron";
 
+import useGame from "./stores/useGame.jsx";
+
 import { useControls } from "leva";
 
 const boxGeometry = new THREE.BoxGeometry(1, 1, 1);
@@ -27,6 +29,10 @@ const obstacleMaterial = new THREE.MeshStandardMaterial({ color: "darkgreen" });
 const wallMaterial = new THREE.MeshStandardMaterial({ color: "slategrey" });
 
 export function Level({}) {
+  const count = useGame((state) => state.count);
+  const blocksPerRow = useGame((state) => state.blocksPerRow);
+  const blockSpacing = useGame((state) => state.blockSpacing);
+
   const [blockSpinnerActive, setBlockSpinnerActive] = useState(true);
   const [blockPillarSpinnerActive, setBlockPillarSpinnerActive] =
     useState(true);
@@ -42,57 +48,56 @@ export function Level({}) {
   const [blockTriangleVar2Active, setBlockTriangleVar2Active] = useState(false);
   const [blockOctahedronActive, setBlockOctahedronActive] = useState(false);
 
-  const controls = useControls(() => ({
-    
-    Spinner: {
-      value: blockSpinnerActive,
-      onChange: (value) => setBlockSpinnerActive(value),
-    },
-    PillarSpinner: {
-      value: blockPillarSpinnerActive,
-      onChange: (value) => setBlockPillarSpinnerActive(value),
-    },
-    SpinnerClock: {
-      value: blockSpinnerClockActive,
-      onChange: (value) => setBlockSpinnerClockActive(value),
-    },
-    SpinnerBarrel: {
-      value: blockSpinnerBarrelActive,
-      onChange: (value) => setBlockSpinnerBarrelActive(value),
-    },
-    DoorActive: {
-      value: blockDoorActive,
-      onChange: (value) => setBlockDoorActive(value),
-    },
-    DoubleDoor: {
-      value: blockDoubleDoorActive,
-      onChange: (value) => setBlockDoubleDoorActive(value),
-    },
-    Limbo: {
-      value: blockLimboActive,
-      onChange: (value) => setBlockLimboActive(value),
-    },
-    RandomPillar: {
-      value: blockRandomPillarActive,
-      onChange: (value) => setBlockRandomPillarActive(value),
-    },
-    Axe: {
-      value: blockAxeActive,
-      onChange: (value) => setBlockAxeActive(value),
-    },
-    Triangle: {
-      value: blockTriangleActive,
-      onChange: (value) => setBlockTriangleActive(value),
-    },
-    TriangleVar2: {
-      value: blockTriangleVar2Active,
-      onChange: (value) => setBlockTriangleVar2Active(value),
-    },
-    Octahedron: {
-      value: blockOctahedronActive,
-      onChange: (value) => setBlockOctahedronActive(value),
-    },
-  }));
+  // const controls = useControls(() => ({
+  //   Spinner: {
+  //     value: blockSpinnerActive,
+  //     onChange: (value) => setBlockSpinnerActive(value),
+  //   },
+  //   PillarSpinner: {
+  //     value: blockPillarSpinnerActive,
+  //     onChange: (value) => setBlockPillarSpinnerActive(value),
+  //   },
+  //   SpinnerClock: {
+  //     value: blockSpinnerClockActive,
+  //     onChange: (value) => setBlockSpinnerClockActive(value),
+  //   },
+  //   SpinnerBarrel: {
+  //     value: blockSpinnerBarrelActive,
+  //     onChange: (value) => setBlockSpinnerBarrelActive(value),
+  //   },
+  //   DoorActive: {
+  //     value: blockDoorActive,
+  //     onChange: (value) => setBlockDoorActive(value),
+  //   },
+  //   DoubleDoor: {
+  //     value: blockDoubleDoorActive,
+  //     onChange: (value) => setBlockDoubleDoorActive(value),
+  //   },
+  //   Limbo: {
+  //     value: blockLimboActive,
+  //     onChange: (value) => setBlockLimboActive(value),
+  //   },
+  //   RandomPillar: {
+  //     value: blockRandomPillarActive,
+  //     onChange: (value) => setBlockRandomPillarActive(value),
+  //   },
+  //   Axe: {
+  //     value: blockAxeActive,
+  //     onChange: (value) => setBlockAxeActive(value),
+  //   },
+  //   Triangle: {
+  //     value: blockTriangleActive,
+  //     onChange: (value) => setBlockTriangleActive(value),
+  //   },
+  //   TriangleVar2: {
+  //     value: blockTriangleVar2Active,
+  //     onChange: (value) => setBlockTriangleVar2Active(value),
+  //   },
+  //   Octahedron: {
+  //     value: blockOctahedronActive,
+  //     onChange: (value) => setBlockOctahedronActive(value),
+  //   },
+  // }));
 
   // useEffect(() => {
   //   console.log("BlockSpinnerActive:", blockSpinnerActive);
@@ -101,13 +106,12 @@ export function Level({}) {
   // useEffect(() => {
   //   console.log(blockSpinnerActive);
   // }, [blockSpinnerActive]);
-  const { count, blocksPerRow, blockSpacing } = useControls({
-    count: { value: 90, min: 0, max: 500 },
-    blocksPerRow: { value: 3, min: 3, max: 30, step: 2},
-    blockSpacing: { value: 4, min: 4, max: 10, step: 1 },
-  });
 
-  
+  // const { count, blocksPerRow, blockSpacing } = useControls({
+  //   count: { value: 90, min: 0, max: 500 },
+  //   blocksPerRow: { value: 3, min: 3, max: 30, step: 2 },
+  //   blockSpacing: { value: 4, min: 4, max: 10, step: 1 },
+  // });
 
   let heightLength = count / blocksPerRow;
 
@@ -174,15 +178,21 @@ export function Level({}) {
             position={[x, y, z]}
           />
         );
-
       })}
+      <BlockEnd
+      
+      position={[0, 0, -(heightLength + 1) * blockSpacing]}
+      geometry={boxGeometry}
+      material={floor1Material}
+
+      />
       <Bounds
         geometry={boxGeometry}
         wallMaterial={wallMaterial}
         widthLength={blocksPerRow}
         heightLength={heightLength}
-        
       />
+     
     </>
   );
 }

@@ -22,7 +22,7 @@ export function BlockSpinner({
     const rotation = new THREE.Quaternion();
     rotation.setFromEuler(new THREE.Euler(0, time * speed, 0));
     if (obstacle.current) {
-    obstacle.current.setNextKinematicRotation(rotation);
+      obstacle.current.setNextKinematicRotation(rotation);
     }
   });
 
