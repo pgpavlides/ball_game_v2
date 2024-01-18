@@ -1,0 +1,235 @@
+.container {
+  width: 100%;
+  height: 100%;
+  // background-color: rgb(24, 198, 45);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+
+.leftcontainer {
+  height: 75%;
+  // background-color: rgb(24, 198, 45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.middlecontainer {
+  // background-color: rgb(24, 198, 45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.middlecontainer__inner{
+  width: 500px;
+  display: grid; 
+  // background-color: red;
+  grid-template-columns: 0.5fr 0.5fr; 
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
+  // gap: 50px 50px; 
+  grid-template-areas: 
+    ". ."
+    ". ."
+    ". ."
+    ". ."
+    ". ."
+    ; 
+}
+
+.titleTrapSelector {
+  text-align: center;
+}
+.descriptionTrapSelector {
+  font-size: 1rem;
+  text-align: center;
+  width: 50%;
+  margin-top: 5rem;
+}
+
+.grid {
+  box-sizing: border-box;
+  display: grid; 
+  grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr; 
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr ; 
+  gap: 3px 3px; 
+  grid-template-areas: 
+    ". ."
+    ". ."
+    ". ."
+    ". ."
+    ". ."
+    ". ."
+    ; 
+
+}
+
+.gridItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.blockCanvas {
+  width: 100px !important;
+  height: 75px !important;
+}
+
+.backbuttonlevelselector {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  > svg {
+    transition: all 0.3s ease-in-out;
+    width: 25px;
+    height: 25px;
+    padding-right: 5px;
+
+    &:hover {
+      fill: #fff;
+    }
+  }
+
+  &:hover {
+    background-color: #000;
+    color: #fff;
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.7);
+  }
+}
+
+.switchOn {
+  background-color: green;
+  color: white;
+  box-shadow: 0 -4px rgb(21 108 0 / 50%) inset,
+    0 4px rgb(100 253 31 / 99%) inset, -4px 0 rgb(100 253 31 / 50%) inset,
+    4px 0 rgb(21 108 0 / 50%) inset;
+}
+
+.switchOff {
+  background-color: red;
+  color: white;
+  box-shadow: 0 -4px rgba(108, 0, 22, 0.5) inset, 0 4px rgb(255, 70, 70) inset,
+    -4px 0 rgb(255, 48, 41) inset, 4px 0 rgba(108, 0, 0, 0.5) inset;
+}
+
+.switchComingSoon {
+  background-color: rgb(255, 166, 0);
+  color: white;
+  box-shadow: 0 -4px rgba(108, 56, 0, 0.5) inset, 0 4px rgb(255, 190, 70) inset,
+    -4px 0 rgb(255, 155, 41) inset, 4px 0 rgba(108, 68, 0, 0.5) inset;
+}
+
+.switchButton {
+  font-size: 8px;
+  width: 80px;
+  color: #fff;
+  text-shadow: 0 2px 0 rgb(0 0 0 / 25%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 0;
+  z-index: 1;
+  user-select: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  white-space: unset;
+  padding: 0.5rem 0.8rem;
+  text-decoration: none;
+  font-weight: 900;
+  transition: all 0.7s cubic-bezier(0, 0.8, 0.26, 0.99);
+}
+
+.switchComingSoon {
+  font-size: 8px;
+  width: 80px;
+  color: #fff;
+  text-shadow: 0 2px 0 rgb(0 0 0 / 25%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 0;
+  z-index: 1;
+  user-select: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  white-space: unset;
+  padding: 0.5rem 0.8rem;
+  text-decoration: none;
+  font-weight: 900;
+  transition: all 0.7s cubic-bezier(0, 0.8, 0.26, 0.99);
+}
+
+.switchButton:before {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  content: "";
+  transition: 0.7s cubic-bezier(0, 0.8, 0.26, 0.99);
+  z-index: -1;
+  // background-color: #008542;
+}
+
+.switchButton:after {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  content: "";
+  box-shadow: 0 4px 0 0 rgb(0 0 0 / 15%);
+  transition: 0.7s cubic-bezier(0, 0.8, 0.26, 0.99);
+}
+
+.switchButton:hover:before {
+  box-shadow: 0 -4px rgb(0 0 0 / 50%) inset, 0 4px rgb(255 255 255 / 20%) inset,
+    -4px 0 rgb(255 255 255 / 20%) inset, 4px 0 rgb(0 0 0 / 50%) inset;
+}
+
+.switchButton:hover:after {
+  box-shadow: 0 4px 0 0 rgb(0 0 0 / 15%);
+}
+
+.switchButton:active {
+  transform: translateY(4px);
+}
+
+.switchButton:active:after {
+  box-shadow: 0 0px 0 0 rgb(0 0 0 / 15%);
+}

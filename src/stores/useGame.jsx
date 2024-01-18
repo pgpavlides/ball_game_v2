@@ -4,8 +4,8 @@ import {create} from 'zustand';
 
 
     return {
-        count: 6,
-        blocksPerRow: 3,
+        count: 100,
+        blocksPerRow: 7,
         blockSpacing: 4,
 
 

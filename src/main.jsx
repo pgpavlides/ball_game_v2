@@ -7,6 +7,8 @@ import "./index.scss";
 import { Leva } from "leva";
 import Interface from "./interfaces/Interface.jsx";
 import { Menu } from "./interfaces/Menu.jsx";
+import { Level } from "./Level.jsx";
+import { LevelSelector } from "./interfaces/LevelSelector.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <>
@@ -28,7 +30,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Experience />
       </Canvas>
       <Interface /> */}
-      <Menu />
+      {/* <Menu /> */}
+      <LevelSelector/>
+
       <Leva collapsed />
     </KeyboardControls>
   </>

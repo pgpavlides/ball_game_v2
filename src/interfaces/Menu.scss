@@ -1,0 +1,91 @@
+.canvasmenu  {
+    height: 50% !important;
+}
+
+
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: auto;
+    justify-content: center;
+    height: 100vh;
+
+    > div:first-child {
+      height: 50%;
+    }
+  
+    > div:not(:first-child) {
+      font-size: 100px;
+      transition: transform 0.2s ease-in-out;
+  
+      &:hover {
+        color: #fff;
+        cursor: pointer;
+        transform: rotate(2deg) scale(1.15);
+      }
+  
+      &:active {
+        transform: rotate(-2deg) scale(1);
+      }
+
+    }
+
+    
+  }
+  
+  
+
+.volumebutton {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  > svg {
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      fill: #fff;
+    }
+  }
+
+  &:hover {
+    background-color: #000;
+    color: #fff;
+  }
+}
+
+.volumeslider {
+  position: absolute;
+  bottom: 0;
+  left: 4rem;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-size: 3rem;
+
+  &:hover {
+    background-color: #000;
+    color: #fff;
+  }
+}

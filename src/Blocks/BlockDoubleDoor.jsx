@@ -4,7 +4,7 @@ import { RigidBody } from "@react-three/rapier";
 import * as THREE from "three";
 
 export function BlockDoubleDoor({
-  position = [2, 0, 0],
+  position = [0, 0, 0],
   geometry,
   floorMaterial,
   obstacleMaterial,
