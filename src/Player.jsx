@@ -93,22 +93,22 @@ export default function Player() {
      * Camera
      */
 
-    // const bodyPosition = body.current.translation();
+    const bodyPosition = body.current.translation();
 
-    // const cameraPosition = new THREE.Vector3();
-    // cameraPosition.copy(bodyPosition);
-    // cameraPosition.z += 2;
-    // cameraPosition.y += 1.3;
+    const cameraPosition = new THREE.Vector3();
+    cameraPosition.copy(bodyPosition);
+    cameraPosition.z += 2;
+    cameraPosition.y += 1.3;
 
-    // const cameraTarget = new THREE.Vector3();
-    // cameraTarget.copy(bodyPosition);
-    // cameraTarget.y += 0.25;
+    const cameraTarget = new THREE.Vector3();
+    cameraTarget.copy(bodyPosition);
+    cameraTarget.y += 0.25;
 
-    // // smoothedCameraPosition.lerp(cameraPosition, 5 * delta);
-    // // smoothedCameraTarget.lerp(cameraTarget, 5 * delta);
+    // smoothedCameraPosition.lerp(cameraPosition, 5 * delta);
+    // smoothedCameraTarget.lerp(cameraTarget, 5 * delta);
 
-    // state.camera.position.copy(cameraPosition);
-    // state.camera.lookAt(cameraTarget);
+    state.camera.position.copy(cameraPosition);
+    state.camera.lookAt(cameraTarget);
   });
 
   return (

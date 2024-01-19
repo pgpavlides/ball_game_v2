@@ -56,7 +56,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               <Canvas camera={{ fov: 75, position: [5, 10, 10] }}>
                 <Experience />
               </Canvas>
-              <Interface />
+              {/* <Interface /> */}
               <Leva collapsed />
             </KeyboardControls>
           </>

@@ -2,12 +2,12 @@ import { create } from "zustand";
 
 export default create((set) => {
  return {
-   count: 3,
-   blocksPerRow: 9,
+   count: 9,
+   blocksPerRow: 3,
    blockSpacing: 4,
    phase: "ready",
 
-   trap1: false,
+   trap1: true,
    trap2: false,
    trap3: false,
    trap4: false,
