@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import { RigidBody, CuboidCollider } from "@react-three/rapier";
 import { useEffect, useMemo, useState } from "react";
+import styles from "./interfaces/LevelSelector.module.scss"
 
 import { Bounds } from "./Blocks/Bounds";
 import { BlockStart } from "./Blocks/BlockStart";
@@ -18,6 +19,7 @@ import { BlockTriangle } from "./Blocks/BlockTriangle";
 import { BlockTriangleVar2 } from "./Blocks/BlockTriangleVar2";
 import { BlockOctahedron } from "./Blocks/BlockOctahedron";
 
+
 import useGame from "./stores/useGame.jsx";
 
 import { useControls } from "leva";
@@ -29,24 +31,40 @@ const obstacleMaterial = new THREE.MeshStandardMaterial({ color: "red" });
 const wallMaterial = new THREE.MeshStandardMaterial({ color: "slategrey" });
 
 export function Level({}) {
+
+  const {
+    trap1,
+    trap2,
+    trap3,
+    trap4,
+    trap5,
+    trap6,
+    trap7,
+    trap8,
+    trap9,
+    trap10,
+    trap11,
+    trap12,
+  } = useGame();
+
   const count = useGame((state) => state.count);
   const blocksPerRow = useGame((state) => state.blocksPerRow);
   const blockSpacing = useGame((state) => state.blockSpacing);
 
-  const [blockSpinnerActive, setBlockSpinnerActive] = useState(true);
+  const [blockSpinnerActive, setBlockSpinnerActive] = useState(trap1);
   const [blockPillarSpinnerActive, setBlockPillarSpinnerActive] =
-    useState(true);
-  const [blockSpinnerClockActive, setBlockSpinnerClockActive] = useState(true);
+    useState(trap2);
+  const [blockSpinnerClockActive, setBlockSpinnerClockActive] = useState(trap3);
   const [blockSpinnerBarrelActive, setBlockSpinnerBarrelActive] =
-    useState(true);
-  const [blockDoorActive, setBlockDoorActive] = useState(true);
-  const [blockDoubleDoorActive, setBlockDoubleDoorActive] = useState(true);
-  const [blockLimboActive, setBlockLimboActive] = useState(true);
-  const [blockRandomPillarActive, setBlockRandomPillarActive] = useState(true);
-  const [blockAxeActive, setBlockAxeActive] = useState(true);
-  const [blockTriangleActive, setBlockTriangleActive] = useState(false);
-  const [blockTriangleVar2Active, setBlockTriangleVar2Active] = useState(false);
-  const [blockOctahedronActive, setBlockOctahedronActive] = useState(false);
+    useState(trap4);
+  const [blockDoorActive, setBlockDoorActive] = useState(trap5);
+  const [blockDoubleDoorActive, setBlockDoubleDoorActive] = useState(trap6);
+  const [blockLimboActive, setBlockLimboActive] = useState(trap7);
+  const [blockRandomPillarActive, setBlockRandomPillarActive] = useState(trap8);
+  const [blockAxeActive, setBlockAxeActive] = useState(trap9);
+  const [blockTriangleActive, setBlockTriangleActive] = useState(trap10);
+  const [blockTriangleVar2Active, setBlockTriangleVar2Active] = useState(trap11);
+  const [blockOctahedronActive, setBlockOctahedronActive] = useState(trap12);
 
   // const controls = useControls(() => ({
   //   Spinner: {
@@ -158,6 +176,8 @@ export function Level({}) {
 
   return (
     <>
+
+
       <BlockStart
         position={[0, 0, 0]}
         geometry={boxGeometry}

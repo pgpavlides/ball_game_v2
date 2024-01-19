@@ -1,24 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Menu.scss";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import { Link, useNavigate } from "react-router-dom";
 
 export function Menu(props) {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="container">
         <Canvas className="canvasmenu">
-            <OrbitControls/>
-            <ambientLight intensity={0.5} />
-            <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-            <pointLight position={[-10, -10, -10]} />
-            <mesh position={[0, 0, 0]}>
-                <sphereGeometry args={[2, 32, 30]}  />
-                <meshStandardMaterial color="orange" wireframe />
-            </mesh>
-
+          <OrbitControls />
+          <ambientLight intensity={0.5} />
+          <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
+          <pointLight position={[-10, -10, -10]} />
+          <mesh position={[0, 0, 0]}>
+            <sphereGeometry args={[2, 32, 30]} />
+            <meshStandardMaterial color="orange" wireframe />
+          </mesh>
         </Canvas>
-        <div className="container__playbutton">PLAY</div>
+        <div onClick={() => {navigate("/level-selector");}} className="container__playbutton" >
+          PLAY
+        </div>
         <div className="container__levelbutton">SETTINGS</div>
         <div className="container__changelog">CHANGELOG</div>
       </div>

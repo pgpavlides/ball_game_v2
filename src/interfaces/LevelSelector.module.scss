@@ -19,6 +19,7 @@
 }
 
 .middlecontainer {
+  height: 75%;
   // background-color: rgb(24, 198, 45);
   display: flex;
   justify-content: center;
@@ -27,18 +28,16 @@
 }
 
 .middlecontainer__inner{
-  width: 500px;
   display: grid; 
-  // background-color: red;
-  grid-template-columns: 0.5fr 0.5fr; 
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr; 
-  // gap: 50px 50px; 
+  grid-template-columns: 0.5fr 0.5fr 0.5fr ; 
+  grid-template-rows: 1fr 1fr 1fr 1fr ; 
+  gap: 0px 100px; 
   grid-template-areas: 
-    ". ."
-    ". ."
-    ". ."
-    ". ."
-    ". ."
+    ". . ."
+    ". . ."
+    ". . ."
+    ". . ."
+    
     ; 
 }
 
@@ -51,6 +50,8 @@
   width: 50%;
   margin-top: 5rem;
 }
+
+
 
 .grid {
   box-sizing: border-box;
@@ -101,6 +102,7 @@
   align-items: center;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  z-index: 9999;
 
   > svg {
     transition: all 0.3s ease-in-out;
@@ -233,3 +235,167 @@
 .switchButton:active:after {
   box-shadow: 0 0px 0 0 rgb(0 0 0 / 15%);
 }
+
+
+.rightcontainer {
+  // background-color: rgb(24, 198, 45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.rightcontainer__inner {
+  // background-color: rgb(24, 198, 45);
+  display: grid; 
+  grid-template-columns: 0.5fr 0.5fr; 
+  grid-template-rows: 1fr 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    ". ."
+    ". ."; 
+}
+
+.gridItemRight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // background-color: red;
+  border-radius: 50px;
+  margin: 50px;
+}
+
+.flexContainerRight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  
+}
+
+.playButton {
+  width: 250px;
+  height: 150px;
+  font-size: 50px;
+  color: #fff;
+  text-shadow: 0 2px 0 rgb(0 0 0 / 25%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 0;
+  z-index: 1;
+  user-select: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  white-space: unset;
+  padding: 0.5rem 0.8rem;
+  text-decoration: none;
+  font-weight: 900;
+  transition: all 0.7s cubic-bezier(0, 0.8, 0.26, 0.99);
+  background-color: green;
+  color: white;
+  box-shadow: 0 -4px rgb(21 108 0 / 50%) inset,
+    0 4px rgb(100 253 31 / 99%) inset, -4px 0 rgb(100 253 31 / 50%) inset,
+    4px 0 rgb(21 108 0 / 50%) inset;
+}
+
+.playButton:before {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  content: "";
+  transition: 0.7s cubic-bezier(0, 0.8, 0.26, 0.99);
+  z-index: -1;
+  // background-color: #008542;
+}
+
+.playButton:after {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  content: "";
+  box-shadow: 0 4px 0 0 rgb(0 0 0 / 15%);
+  transition: 0.7s cubic-bezier(0, 0.8, 0.26, 0.99);
+}
+
+.playButton:hover:before {
+  box-shadow: 0 -4px rgb(0 0 0 / 50%) inset, 0 4px rgb(255 255 255 / 20%) inset,
+    -4px 0 rgb(255 255 255 / 20%) inset, 4px 0 rgb(0 0 0 / 50%) inset;
+}
+
+.playButton:hover:after {
+  box-shadow: 0 4px 0 0 rgb(0 0 0 / 15%);
+}
+
+.playButton:active {
+  transform: translateY(4px);
+}
+
+.playButton:active:after {
+  box-shadow: 0 0px 0 0 rgb(0 0 0 / 15%);
+}
+
+.ballColor {
+  width: 250px;
+  height: 150px;
+  background-color: rgba(212, 37, 37, 0.815);
+  box-shadow: 0 -4px rgba(108, 0, 0, 0.5) inset,
+    0 4px rgba(253, 31, 31, 0.99) inset, -4px 0 rgba(253, 72, 31, 0.5) inset,
+    4px 0 rgba(108, 4, 0, 0.5) inset;
+}
+
+.ballColor {
+  width: 250px;
+  height: 150px;
+  background-color: rgba(212, 37, 37, 0.815);
+  box-shadow: 0 -4px rgba(108, 0, 0, 0.5) inset,
+    0 4px rgba(253, 31, 31, 0.99) inset, -4px 0 rgba(253, 72, 31, 0.5) inset,
+    4px 0 rgba(108, 4, 0, 0.5) inset;
+}
+
+.ballBack {
+  width: 250px;
+  height: 150px;
+  background-color: rgba(161, 161, 161, 0.815);
+  box-shadow: 0 -4px rgba(77, 77, 77, 0.5) inset,
+    0 4px rgba(180, 180, 180, 0.99) inset, -4px 0 rgba(159, 159, 159, 0.5) inset,
+    4px 0 rgba(69, 69, 69, 0.5) inset;
+}
+.ballOptions {
+  width: 250px;
+  height: 150px;
+  background-color: rgba(161, 161, 161, 0.815);
+  box-shadow: 0 -4px rgba(77, 77, 77, 0.5) inset,
+    0 4px rgba(180, 180, 180, 0.99) inset, -4px 0 rgba(159, 159, 159, 0.5) inset,
+    4px 0 rgba(69, 69, 69, 0.5) inset;
+}
+
+.levelimage {
+  background-color: red;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.selected {
+  background-color: green;
+ }
