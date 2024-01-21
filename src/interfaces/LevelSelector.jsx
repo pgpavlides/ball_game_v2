@@ -374,7 +374,7 @@ export function LevelSelector({ animdelay }) {
                 <BlockCanvas
                   className={styles.blockCanvas}
                   item={
-                    <BlockSpinner
+                    <BlockOctahedron
                       geometry={boxGeometry}
                       floorMaterial={floor2Material}
                       obstacleMaterial={obstacleMaterial}
